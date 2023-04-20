@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -30,6 +29,8 @@ public class ToDo {
     private LocalDate deadline;
 
     private Integer maxTime;
+
+    private boolean finished;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn

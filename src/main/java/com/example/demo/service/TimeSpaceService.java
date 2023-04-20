@@ -1,10 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.TimeSpaceDTO;
-import com.example.demo.domain.ToDoDTO;
-import com.example.demo.exception.CustomException;
 import com.example.demo.mapper.TimeSpaceMapper;
-import com.example.demo.model.Category;
 import com.example.demo.model.TimeSpace;
 import com.example.demo.repository.TimeSpaceRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
-
-import static com.example.demo.util.OrganizationUtil.fromStringToDate;
 
 @Service
 @RequiredArgsConstructor

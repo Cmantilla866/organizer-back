@@ -23,6 +23,12 @@ public class Task {
 
     private String jumpStart;
 
+    @OneToOne
+    @JoinColumn(name = "dependantTask_id")
+    private Task dependantTask;
+
+    private boolean finished;
+
     @JsonBackReference(value="toDo")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "toDo_id")

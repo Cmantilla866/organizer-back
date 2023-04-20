@@ -1,13 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.SatisfactionLevelDTO;
-import com.example.demo.model.SatisfactionLevel;
 import com.example.demo.service.SatisfactionLevelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 
 @RestController
 @RequiredArgsConstructor

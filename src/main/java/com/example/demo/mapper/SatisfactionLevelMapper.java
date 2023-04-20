@@ -1,15 +1,10 @@
 package com.example.demo.mapper;
 
 import com.example.demo.domain.SatisfactionLevelDTO;
-import com.example.demo.exception.CustomException;
 import com.example.demo.model.SatisfactionLevel;
 import com.example.demo.repository.SatisfactionLevelRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor

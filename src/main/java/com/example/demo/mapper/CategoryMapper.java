@@ -5,7 +5,6 @@ import com.example.demo.exception.CustomException;
 import com.example.demo.model.Category;
 import com.example.demo.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

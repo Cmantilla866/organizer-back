@@ -1,11 +1,8 @@
 package com.example.demo.domain;
 
-import com.example.demo.model.ToDo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -17,5 +14,8 @@ public class TaskDTO {
     private String description;
     private String jumpStart;
     private ToDoDTO toDoDTO;
+    private boolean finished;
+
+    private TaskDTO dependantTaskDTO;
 
 }

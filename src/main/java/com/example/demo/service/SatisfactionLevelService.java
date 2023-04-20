@@ -1,8 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.CategoryDTO;
 import com.example.demo.domain.SatisfactionLevelDTO;
-import com.example.demo.domain.TaskDTO;
 import com.example.demo.mapper.SatisfactionLevelMapper;
 import com.example.demo.model.SatisfactionLevel;
 import com.example.demo.repository.SatisfactionLevelRepository;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Optional;
 
 @Service

@@ -1,23 +1,18 @@
 package com.example.demo.mapper;
 
-import com.example.demo.domain.CategoryDTO;
 import com.example.demo.domain.ToDoDTO;
 import com.example.demo.exception.CustomException;
-import com.example.demo.model.Category;
+import com.example.demo.model.Task;
 import com.example.demo.model.ToDo;
 import com.example.demo.repository.ToDoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static com.example.demo.util.OrganizationUtil.fromDateToString;
-import static com.example.demo.util.OrganizationUtil.fromStringToDate;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -38,7 +33,26 @@ public class ToDoMapper {
         dto.setMaxTime(entity.getMaxTime());
         dto.setCategoryDTO(categoryMapper.fromEntityToDTO(entity.getCategory()));
 
+        if (!entity.getTasks().isEmpty()){
+            List<Task> tasks = entity.getTasks().stream().filter(task -> validTask(task)).collect(Collectors.toList());
+            Random random = new Random();
+            int index = random.nextInt(tasks.size());
+            dto.setRandomTaskId(tasks.get(index).getId());
+        }
+
         return dto;
+    }
+
+    public boolean validTask (Task task){
+        if (task.getDependantTask() == null && !task.isFinished()){
+            return true;
+        }
+        else{
+            if (task.isFinished()){
+                return false;
+            }
+            return task.getDependantTask().isFinished();
+        }
     }
 
     public ToDo searchFromDTOtoEntity (ToDoDTO dto)  {

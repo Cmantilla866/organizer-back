@@ -1,15 +1,12 @@
 package com.example.demo.mapper;
 
 import com.example.demo.domain.TaskDTO;
-import com.example.demo.domain.ToDoDTO;
 import com.example.demo.exception.CustomException;
 import com.example.demo.model.Task;
-import com.example.demo.model.ToDo;
 import com.example.demo.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +26,7 @@ public class TaskMapper {
         dto.setDescription(entity.getDescription());
         dto.setJumpStart(entity.getJumpStart());
         dto.setToDoDTO(toDoMapper.fromEntityToDTO(entity.getToDo()));
+        dto.setDependantTaskDTO(entity.getDependantTask() != null ? fromEntityToDTO(entity.getDependantTask()) : null);
 
         return dto;
     }
@@ -41,6 +39,7 @@ public class TaskMapper {
         entity.setDescription(dto.getDescription());
         entity.setJumpStart(dto.getJumpStart());
         entity.setToDo(toDoMapper.searchFromDTOtoEntity(dto.getToDoDTO()));
+        entity.setDependantTask(dto.getDependantTaskDTO().getId() != null ? searchFromDTOtoEntity(dto.getDependantTaskDTO()) : null);
 
         return entity;
     }

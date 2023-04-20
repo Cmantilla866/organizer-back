@@ -2,7 +2,6 @@ package com.example.demo.util;
 
 import com.example.demo.exception.CustomException;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

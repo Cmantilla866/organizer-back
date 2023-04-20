@@ -1,23 +1,13 @@
 package com.example.demo.mapper;
 
 import com.example.demo.domain.TimeSpaceDTO;
-import com.example.demo.domain.ToDoDTO;
-import com.example.demo.exception.CustomException;
 import com.example.demo.model.TimeSpace;
-import com.example.demo.model.ToDo;
-import com.example.demo.repository.TimeSpaceRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
-import static com.example.demo.util.OrganizationUtil.fromDateToString;
-import static com.example.demo.util.OrganizationUtil.fromStringToDate;
 
 @Component
 @RequiredArgsConstructor

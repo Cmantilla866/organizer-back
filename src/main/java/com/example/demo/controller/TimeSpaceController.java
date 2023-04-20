@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.TimeSpaceDTO;
-import com.example.demo.exception.CustomException;
 import com.example.demo.service.TimeSpaceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

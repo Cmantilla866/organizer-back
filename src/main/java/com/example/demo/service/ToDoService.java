@@ -1,10 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.domain.CategoryDTO;
 import com.example.demo.domain.ToDoDTO;
 import com.example.demo.mapper.ToDoMapper;
-import com.example.demo.model.Category;
-import com.example.demo.model.TimeSpace;
 import com.example.demo.model.ToDo;
 import com.example.demo.repository.TimeSpaceRepository;
 import com.example.demo.repository.ToDoRepository;
@@ -12,9 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -71,6 +66,10 @@ public class ToDoService {
         // Get all ToDos from the repository
         List<ToDo> filteredToDos = toDoRepository.findAllByMaxTimeOrderByPriorityDesc(0);
 
+        filteredToDos = filteredToDos.stream()
+                .filter(todo -> !todo.isFinished())
+                .collect(Collectors.toList());
+
         // Filter out ToDos based on categoryIds
         if (categoryTypes != null && !categoryTypes.isEmpty()) {
             filteredToDos = filteredToDos.stream()
@@ -115,5 +114,7 @@ public class ToDoService {
 
         return new ResponseEntity<>(toDoMapper.fromEntityToDTO(selectedToDo), HttpStatus.OK);
     }
+
+
 
 }

@@ -1,9 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.TaskDTO;
-import com.example.demo.domain.TaskDTO;
 import com.example.demo.mapper.TaskMapper;
-import com.example.demo.model.Task;
 import com.example.demo.model.Task;
 import com.example.demo.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
